@@ -1,18 +1,12 @@
-<!--         Navigation
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Practica Views</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Articulos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Categorias</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav> -->
-        <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+<!-- <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <a class="navbar-brand" href="/category">Categorias</a>
+      </div>
+    </nav>
+  </div> -->
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
@@ -24,43 +18,43 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="/">
+          <a class="nav-link text-white active bg-gradient-primary" href="./pages/dashboard.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
-            <span class="nav-link-text ms-1">Inicio</span>
+            <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/libro">
+          <a class="nav-link text-white " href="./pages/tables.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
-            <span class="nav-link-text ms-1">Libros</span>
+            <span class="nav-link-text ms-1">Tables</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/editorial">
+          <a class="nav-link text-white " href="./pages/billing.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
-            <span class="nav-link-text ms-1">Editoriales</span>
+            <span class="nav-link-text ms-1">Billing</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/tema">
+          <a class="nav-link text-white " href="./pages/virtual-reality.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
-            <span class="nav-link-text ms-1">Temas</span>
+            <span class="nav-link-text ms-1">Virtual Reality</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="/user">
+          <a class="nav-link text-white " href="./pages/rtl.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
             </div>
-            <span class="nav-link-text ms-1">Usuarios</span>
+            <span class="nav-link-text ms-1">RTL</span>
           </a>
         </li>
         <li class="nav-item">
@@ -68,7 +62,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
-            <span class="nav-link-text ms-1">Notificaciones</span>
+            <span class="nav-link-text ms-1">Notifications</span>
           </a>
         </li>
         <li class="nav-item mt-3">
@@ -79,7 +73,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
-            <span class="nav-link-text ms-1">Perfil</span>
+            <span class="nav-link-text ms-1">Profile</span>
           </a>
         </li>
         <li class="nav-item">
@@ -87,7 +81,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">login</i>
             </div>
-            <span class="nav-link-text ms-1">Entrar</span>
+            <span class="nav-link-text ms-1">Sign In</span>
           </a>
         </li>
         <li class="nav-item">
@@ -95,7 +89,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">assignment</i>
             </div>
-            <span class="nav-link-text ms-1">Registrarse</span>
+            <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
       </ul>
@@ -107,4 +101,5 @@
     </div>
   </aside>
   <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-      @include('Layout/navbar')
+@include('Layout/navBar')
+
