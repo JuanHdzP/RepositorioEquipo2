@@ -15,6 +15,12 @@ class CreatePrestamosTable extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('fecha_prestamo');
+            $table->date('fecha_devolucion');
+            $table->decimal('costo');
+            //Declaracion de llaves foraneas
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');   
             $table->timestamps();
         });
     }

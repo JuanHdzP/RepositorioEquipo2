@@ -15,6 +15,11 @@ class CreateTableLibrosTemas extends Migration
     {
         Schema::create('table_libros_temas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            //Declaracion de llaves foraneas
+            $table->unsignedBigInteger('libro_id');
+            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->unsignedBigInteger('tema_id');
+            $table->foreign('tema_id')->references('id')->on('temas');
             $table->timestamps();
         });
     }

@@ -15,6 +15,11 @@ class CreateTableLibrosPrestamos extends Migration
     {
         Schema::create('table_libros_prestamos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            //Declaracion de llaves foraneas
+            $table->unsignedBigInteger('libro_id');
+            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->unsignedBigInteger('prestamo_id');
+            $table->foreign('prestamo_id')->references('id')->on('prestamos');
             $table->timestamps();
         });
     }
