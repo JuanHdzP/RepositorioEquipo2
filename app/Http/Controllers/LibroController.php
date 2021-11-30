@@ -11,7 +11,7 @@ class LibroController extends Controller
     //
         public function index(){
 
-            $libros = Libro::all();
+            $libros = Libro::latest()->paginate(20);
             return view('libros.index',[
             'libros'=> $libros
             ]);
@@ -20,7 +20,7 @@ class LibroController extends Controller
         }
         public function create()
         {
-            //
+            return view('libros.add');
         }
     
         /**
@@ -33,8 +33,13 @@ class LibroController extends Controller
         {
             Libro::create([
                 'titulo'=>$request->titulo,
+                'autor'=> $request->autor,
+                'descripcion'=> $request->descripcion,
+                'img'=> $request->img,
+                'existencias'=> $request->existencias,
+                'editorial_id'=> $request->editorial_id
             ]);
-            return back();
+            return ('El Libro se dio de alta de manera correcta');
         }
     
         /**
@@ -46,6 +51,13 @@ class LibroController extends Controller
         public function show($id)
         {
             //
+        $libro = Libro::find($id);
+
+        return $libro;
+
+        return view('libro.show',[
+            '$libro' => $libro
+        ]);
         }
     
         /**
@@ -57,6 +69,15 @@ class LibroController extends Controller
         public function edit($id)
         {
             //
+            $libro = Libro::findOrFaild($id);
+            return view('/libro');
+        }
+
+        public function delete(Libro $libro){
+            $libro->delete();
+            return redirect('/libro')->with('mesageDelete', 'El libro se ha eliminado exitosamente!');
+    
+    
         }
     
         /**
