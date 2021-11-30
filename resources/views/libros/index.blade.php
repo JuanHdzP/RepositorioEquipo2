@@ -23,8 +23,9 @@
             <div class="card my-4">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                  <h6 class="text-white text-capitalize ps-3">Libros</h6>
-                  <div class="float-end">  
+                <center>
+                    <h3 class="text-white text-capitalize ps-3">Libros</h3>
+                </center>                  <div class="float-end">  
                     {{-- Button del modal --}}                
                       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fas fa-plus-circle"></i>
@@ -64,13 +65,13 @@
   </div>
               <!-- Modal ADD  END  -->
           
-      <div class="row">
-        <table class="table align-items-center mb-0">    
+              <div class="row">
+                <table class="table align-items-center mb-0">   
             <thead>
                   <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clave</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Titulo</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Titulo</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
                   </tr>  
               </thead>
               <tbody>
@@ -79,15 +80,17 @@
                       <td>{{$libro->id}}</td>
                       <td>{{$libro->titulo}}</td>
                       <td>
-                        <button type='button' class="btn btn-sm btn-primary"><i class="far fa-eye"></i></button>
-                        <a type="button" href="{{route('libro.edit',$libro->id) }}" class="btn btn-sm  btn-success" 
+                      <div class="d-flex">
+                        <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
+                        <a type="button" href="{{route('libro.edit',$libro->id) }}" class="btn  btn-success" 
                           data-bs-toggle="modal" data-bs-target="#modalUpdate"><i class="fas fa-pen-square"></i></a>
                         <form action="{{ route('libro.destroy', $libro) }}" method="POST">
                           @method('DELETE')
                           @csrf
-                        <button type='submit' class="btn btn-sm btn-danger"                  
+                        <button type='submit' class="btn btn-danger"                  
                         onClick="return confirm('Deseas eliminar el registro?')">
                         <i class="far fa-trash-alt"></i>
+                      </div>
                       </button>           
                     </form>
 
