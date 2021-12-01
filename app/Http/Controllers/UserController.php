@@ -7,15 +7,17 @@ use App\User;
 
 class UserController extends Controller
 {
-        /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    /*
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+    */
+
     public function index()
     {
         //
-        $users = User::all();
+        $users = User::latest()->paginate(20);
         return view('users.index',[
         'users'=> $users
         ]);
@@ -28,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.add');
     }
 
     /**
@@ -39,11 +41,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
         User::create([
-            'name'=>$request->nombre,
+            'nombre'=>$request->nombre,
+            'telefono'=>$request->telefono,
+            'email'=>$request->email,
+            'email_verified_at'=>$request->email_verified_at,
+            'password'=>$request->password,
+            'remember_token'=>$request->remember_token,
         ]);
-        return back();
+        return ('Usuario agregado de manera correcta');
     }
 
     /**
@@ -54,7 +60,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return $user;
     }
 
     /**
@@ -65,7 +73,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFaild($id);
+        return view('/user');
     }
 
     /**
@@ -75,6 +84,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function delete(User $user){
+        $user->delete();
+        return redirect('/user')->with('mesageDelete', 'El usuario se ha eliminado exitosamente!');
+
+
+    }
+
     public function update(Request $request, $id)
     {
         //
