@@ -35,11 +35,11 @@ Route::get('/libros/{$id}','LibroController@edit')->name('libro.edit');
 Route::delete('/libros/{libro}','LibroController@delete')->name('libro.destroy');
 
 /* Temas */
-Route::get('/tema','TemaController@index');
+Route::get('/temas','TemaController@index');
 Route::post('/temas','TemaController@store')->name('tema.store');
+Route::get('/temas/{$id}','TemaController@edit')->name('tema.edit');
 Route::delete('/temas/{tema}','TemaController@delete')->name('tema.destroy');
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+
 /*  Email MailTrap */
 Route::get('enviarcorreo', ['as' => 'enviar', function () {
     $data = ["link" => "https://digital-pineapple.com.mx"];

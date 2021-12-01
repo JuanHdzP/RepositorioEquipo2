@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 class TemaController extends Controller
 {
     //
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth','verified']);
+    // }
+
     public function index(){
 
-        $temas = Tema::all();
+        $temas = Tema::latest()->paginate(20);
         return view('temas.index',[
         'temas'=> $temas
         ]);
@@ -18,7 +23,7 @@ class TemaController extends Controller
     }
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -30,9 +35,9 @@ class TemaController extends Controller
     public function store(Request $request)
     {
         Tema::create([
-            'name'=>$request->nombre,
+            'nombre'=>$request->nombre
         ]);
-        return back();
+        return redirect('/temas')->with('mesage', 'El tema se creó exitosa mente ');
     }
 
     /**
@@ -43,7 +48,13 @@ class TemaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tema = Tema::find($id);
+
+        return $tema;
+
+        return view('tema.show',[
+            '$tema' => $tema
+        ]);
     }
 
     /**
@@ -54,7 +65,15 @@ class TemaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tema = Tema::findOrFaild($id);
+        return view('/tema');
+    }
+
+    public function delete(Tema $tema){
+        
+        $tema->delete();
+        return redirect('/temas')->with('mesageDelete', 'El tema se ha eliminado exitosamente!');
+
     }
 
     /**
