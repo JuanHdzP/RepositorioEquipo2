@@ -3,26 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Tema;
+use App\Editorial;
+use App\Libro;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth','verified']);
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
     public function index()
     {
-        return view('home');
+        $users = User::count();
+        $libros = Libro::count();
+        $editoriales = Editorial::count();
+        $temas = Tema::count();
+        return view('index', [
+            'users' => $users,
+            'libros' => $libros,
+            'editoriales' => $editoriales,
+            'temas' => $temas
+        ]);
     }
 }

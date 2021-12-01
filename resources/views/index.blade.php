@@ -11,7 +11,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Libros</p>
-                <h4 class="mb-0">$53k</h4>
+                <h4 class="mb-0">{{$libros}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -28,7 +28,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Usuarios</p>
-                <h4 class="mb-0">2,300</h4>
+                <h4 class="mb-0">{{$users}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -45,7 +45,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Editoriales</p>
-                <h4 class="mb-0">3,462</h4>
+                <h4 class="mb-0">{{$editoriales}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
@@ -62,7 +62,7 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-sm mb-0 text-capitalize">Temas</p>
-                <h4 class="mb-0">$103,430</h4>
+                <h4 class="mb-0">{{$temas}}</h4>
               </div>
             </div>
             <hr class="dark horizontal my-0">
