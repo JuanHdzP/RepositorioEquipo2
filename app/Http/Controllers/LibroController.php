@@ -9,6 +9,11 @@ class LibroController extends Controller
 {
     //
     //
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+    
         public function index(){
 
             $libros = Libro::latest()->paginate(20);
