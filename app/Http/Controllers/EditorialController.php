@@ -10,7 +10,7 @@ class EditorialController extends Controller
     //
         public function index(){
 
-            $editorials = Editorial::all();
+            $editorials = Editorial::latest()->paginate(20);
             return view('editorials.index',[
             'editorials'=> $editorials
             ]);
