@@ -27,9 +27,9 @@
                     <h3 class="text-white text-capitalize ps-3">Libros</h3>
                 </center>                  <div class="float-end">  
                     {{-- Button del modal --}}                
-                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a type="button" href="libro/add" class="btn btn-primary">
                         <i class="fas fa-plus-circle"></i>
-                      </button>
+                      </a>
                   </div>
                 </div>
               </div>

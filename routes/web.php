@@ -29,7 +29,7 @@ Route::delete('/editorials/{editorial}','EditorialController@delete')->name('edi
 
 /* Libros */
 Route::get('/libro','LibroController@index');
-Route::get('/libro/add','ControllerLibro@create');
+Route::get('/libro/add','LibroController@create');
 Route::post('/libros','LibroController@store')->name('libro.store');
 Route::get('/libros/{$id}','LibroController@edit')->name('libro.edit');
 Route::delete('/libros/{libro}','LibroController@delete')->name('libro.destroy');
