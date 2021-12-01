@@ -19,7 +19,7 @@ class EditorialController extends Controller
         }
         public function create()
         {
-            //
+            return view('editorials.add');
         }
     
         /**
@@ -31,9 +31,9 @@ class EditorialController extends Controller
         public function store(Request $request)
         {
             Editorial::create([
-                'name'=>$request->nombre,
+                'nombre'=>$request->nombre,
             ]);
-            return back();
+            return ('Editorial agregada exitosamente');
         }
     
         /**
@@ -44,7 +44,9 @@ class EditorialController extends Controller
          */
         public function show($id)
         {
-            //
+            $editorials = Editorial::find($id);
+
+            return $editorials;
         }
     
         /**
@@ -55,7 +57,8 @@ class EditorialController extends Controller
          */
         public function edit($id)
         {
-            //
+            $editorials = Editorial::findOrFaild($id);
+            return view('/editorial');
         }
     
         /**
@@ -65,6 +68,13 @@ class EditorialController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
+
+        // public function delete(Editorial $editorials){
+        //     $editorials->delete();
+        //     return redirect('/editorial')->with('mesageDelete', 'la editorial se ha eliminado exitosamente!');
+
+        // }
+
         public function update(Request $request, $id)
         {
             //
@@ -76,8 +86,9 @@ class EditorialController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function destroy($id)
+        public function destroy(Editorial $editorials)
         {
-            //
+            $editorials->destroy();   
+            return redirect('/editorial')->with('mesageDestroy', 'La editorial se ha eliminado exitosamente!');
         }
 }
