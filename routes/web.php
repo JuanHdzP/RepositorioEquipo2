@@ -14,12 +14,12 @@
 Route::get('/', function(){
     return view ('index');
 });
+
 /* USUARIOS */
-/* index lista */
 Route::get('/user', 'UserController@index');
-/* store guarda datos en BD */
+Route::get('/user/add', 'UserController@create');
 Route::post('/users', 'UserController@store')->name('user.store');
-/* Delete elima datos */
+Route::get('/user/{id}', 'UserController@edit')->name('user.edit');
 Route::delete('/users/{user}' ,'UserController@delete')->name('user.destroy');
 
 /* Editoriales */
