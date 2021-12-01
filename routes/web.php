@@ -38,3 +38,6 @@ Route::delete('/libros/{libro}','LibroController@delete')->name('libro.destroy')
 Route::get('/tema','TemaController@index');
 Route::post('/temas','TemaController@store')->name('tema.store');
 Route::delete('/temas/{tema}','TemaController@delete')->name('tema.destroy');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
