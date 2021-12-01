@@ -49,16 +49,15 @@
     <div class="modal-dialog">
       <div class="modal-content">  
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ingresa in Libro</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ingreso de usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=""></button>
         </div>
         <div class="modal-body">
           <div class="container">
           <div class="row">
-            <form action="{{ route('libro.store') }}" method="POST">
-              {{-- generar el token para el envio de dato csrf --}}
+            <form action="{{ route('user.store') }}" method="POST">
               {{ csrf_field() }} 
-                <label class= "col" for="">Nombre Categoria:</label>
+                <label class= "col" for="">Nombre:</label>
                 <input class="col from-control" type="text" name="name" placeholder="Nombre">
       </div>
         <div class="modal-footer">
@@ -131,10 +130,10 @@
                     <form action="{{ route('user.store') }}" method="POST">
                       {{ csrf_field() }} 
                         <label class= "col" for="">Nombre:</label>
-                        <input class="col from-control" type="text" name="name" value={{$user->nombre}}>
+                        <input class="col from-control" type="text" name="nombre" value={{$user->nombre}}>
                         <br>
                         <label class= "col" for="">Telefono:</label>
-                        <input class="col from-control" type="tel" name="tel" value={{$user->telefono}}>
+                        <input class="col from-control" type="tel" name="telefono" value={{$user->telefono}}>
                         <br>
                         <label class= "col" for="">Email:</label>
                         <input class="col from-control" type="email" name="email" value={{$user->email}}>
@@ -146,7 +145,7 @@
                         <input class="col from-control" type="password" name="password" value={{$user->password}}>
                         <br>
                         <label class= "col" for="">Token:</label>
-                        <input class="col from-control" type="text" name="token" value={{$user->remember_token}}>
+                        <input class="col from-control" type="text" name="remember_token" value={{$user->remember_token}}>
                   </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

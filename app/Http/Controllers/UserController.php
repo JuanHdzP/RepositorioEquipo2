@@ -7,12 +7,10 @@ use App\User;
 
 class UserController extends Controller
 {
-    /*
     public function __construct()
     {
         $this->middleware(['auth','verified']);
     }
-    */
 
     public function index()
     {
@@ -49,7 +47,7 @@ class UserController extends Controller
             'password'=>$request->password,
             'remember_token'=>$request->remember_token,
         ]);
-        return ('Usuario agregado de manera correcta');
+        return redirect('/user')->with('mesageDelete', 'El usuario se ha agregado exitosamente!');
     }
 
     /**
