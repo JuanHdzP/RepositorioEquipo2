@@ -20,10 +20,6 @@ class EditorialController extends Controller
     
     
         }
-        public function create()
-        {
-            return view('editorials.add');
-        }
     
         /**
          * Store a newly created resource in storage.
@@ -32,12 +28,12 @@ class EditorialController extends Controller
          * @return \Illuminate\Http\Response
          */
         public function store(Request $request)
-        {
-            Editorial::create([
-                'nombre'=>$request->nombre,
-            ]);
-            return ('Editorial agregada exitosamente');
-        }
+    {
+        Editorial::create([
+            'nombre'=>$request->nombre
+        ]);
+        return redirect('/editorial')->with('mesage', 'La editorial se creó exitosamente ');
+    }
     
         /**
          * Display the specified resource.

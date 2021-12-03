@@ -36,7 +36,7 @@ class TemaController extends Controller
         Tema::create([
             'nombre'=>$request->nombre
         ]);
-        return redirect('/temas')->with('mesage', 'El tema se creó exitosa mente ');
+        return redirect('/temas')->with('mesage', 'El tema se creó exitosamente ');
     }
 
     /**

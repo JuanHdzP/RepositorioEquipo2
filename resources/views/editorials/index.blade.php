@@ -27,7 +27,7 @@
                     <h3 class="text-white text-capitalize ps-3">Editoriales</h3>
                 </center>                  <div class="float-end">  
                     {{-- Button del modal --}}                
-                    <a type="button" href="editorial/add" class="btn btn-primary">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fas fa-plus-circle"></i>
                       </a>
                   </div>
@@ -36,12 +36,12 @@
               <div class="card-body px-0 pb-2">
                 <div class="table-responsive p-0">
     <div class="container">
-            <!-- Modal ADD  STAR-->
+            <!-- Modal ADD  -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">  
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ingresa una editorial</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Ingresa el nombre de la editorial  </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=""></button>
         </div>
         <div class="modal-body">
@@ -50,8 +50,8 @@
             <form action="{{ route('editorial.store') }}" method="POST">
               {{-- generar el token para el envio de dato csrf --}}
               {{ csrf_field() }} 
-                <label class= "col" for="">Nombre Categoria:</label>
-                <input class="col from-control" type="text" name="name" placeholder="Nombre">
+                <label class= "col" for="">Nombre de la editorial:</label>
+                <input class="col from-control" type="text" name="nombre" placeholder="Terror">
       </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -63,13 +63,15 @@
       </div>
     </div>
   </div>
-              <!-- Modal ADD  END  -->
+                <!-- Modal ADD END  -->
           
               <div class="row">
                 <table class="table align-items-center mb-0">   
             <thead>
                   <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clave</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
                   </tr>  
               </thead>
               <tbody>
@@ -103,7 +105,7 @@
             <div class="modal-dialog">
               <div class="modal-content">  
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Actualizar editorial</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Actualizar Editorial</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=""></button>
                 </div>
                 <div class="modal-body">
@@ -112,8 +114,8 @@
                     <form action="{{ route('editorial.store') }}" method="POST">
                       {{-- generar el token para el envio de dato csrf --}}
                       {{ csrf_field() }} 
-                        <label class= "col" for="">Nombre editorial:</label>
-                        <input class="col from-control" type="text" name="name" placeholder="Nombre" value={{$editorial->name}}>
+                        <label class= "col" for="">Nombre de la editorial:</label>
+                        <input class="col from-control" type="text" name="nombre" placeholder="Nombre" value={{$editorial->name}}>
               </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
