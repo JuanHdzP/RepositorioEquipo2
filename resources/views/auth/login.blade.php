@@ -33,8 +33,8 @@
               <div class="card-body">
                 <form role="form" class="text-start" method="POST" action="{{ route('login') }}">
                     @csrf
-                  <div class="input-group input-group-outline my-3">
-                    <label class="form-label">{{ __('Ingresa Tu Correo') }}</label>
+                  <div class="form-group row my-3">
+                    <label class="form-label">{{ ('Ingresa Tu Correo') }}</label>
                     <input id="email"  type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -42,8 +42,8 @@
                                     </span>
                                 @enderror
                   </div>
-                  <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">{{ __('Ingresa Tu Contraseña') }}</label>
+                  <div class="form-group row mb-3">
+                    <label class="form-label">{{ ('Ingresa Tu Contraseña') }}</label>
                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     @error('password')
                                     <span class="invalid-feedback" role="alert">

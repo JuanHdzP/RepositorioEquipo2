@@ -45,9 +45,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*  Email MailTrap */
-Route::get('/salir', function () {
+Route::get('/logout', function () {
     Auth::logout();
-    return "Sesion cerrada";
+    return redirect('/');
 });
 
 /* para verificar cuenta */
