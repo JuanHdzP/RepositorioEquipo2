@@ -10,7 +10,7 @@ class EditorialController extends Controller
     {
         $this->middleware(['auth','verified']);
     }
-    
+
         public function index(){
 
             $editorials = Editorial::latest()->paginate(20);
@@ -89,9 +89,9 @@ class EditorialController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function destroy(Editorial $editorials)
+        public function delete(Editorial $editorial)
         {
-            $editorials->destroy();   
-            return redirect('/editorial')->with('mesageDestroy', 'La editorial se ha eliminado exitosamente!');
+            $editorial->delete();   
+            return redirect('/editorial')->with('mesageDelete', 'La editorial se ha eliminado exitosamente!');
         }
 }
