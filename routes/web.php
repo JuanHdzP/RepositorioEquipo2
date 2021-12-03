@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 
-/* USUARIOS */
+/* Usuarios */
 Route::get('/user', 'UserController@index');
 Route::get('/user/add', 'UserController@create');
 Route::post('/users', 'UserController@store')->name('user.store');
@@ -22,7 +22,9 @@ Route::delete('/users/{user}' ,'UserController@delete')->name('user.destroy');
 
 /* Editoriales */
 Route::get('/editorial','EditorialController@index');
+Route::get('/editorial/add', 'EditorialController@create');
 Route::post('/editorials','EditorialController@store')->name('editorial.store');
+Route::get('/editorial/{id}', 'EditorialController@edit')->name('editorial.edit');
 Route::delete('/editorials/{editorial}','EditorialController@delete')->name('editorial.destroy');
 
 /* Libros */

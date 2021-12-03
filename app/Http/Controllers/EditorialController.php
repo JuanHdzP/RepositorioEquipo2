@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 class EditorialController extends Controller
 {
-    //
-    //
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
+    
         public function index(){
 
             $editorials = Editorial::latest()->paginate(20);

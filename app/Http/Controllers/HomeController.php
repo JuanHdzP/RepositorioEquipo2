@@ -10,10 +10,10 @@ use App\Libro;
 
 class HomeController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth','verified']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     
     public function index()
     {
