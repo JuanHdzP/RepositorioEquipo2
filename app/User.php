@@ -8,9 +8,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class User extends Authenticatable  implements MustVerifyEmail
+class User extends Authenticatable  /*implements MustVerifyEmail*/
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +19,7 @@ class User extends Authenticatable  implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'nombre','telefono', 'email', 'password',
+        'nombre', 'email', 'password', 'telefono',
     ];
 
     /**

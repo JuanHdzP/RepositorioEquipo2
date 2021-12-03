@@ -38,8 +38,12 @@ Route::post('/temas','TemaController@store')->name('tema.store');
 Route::get('/temas/{$id}','TemaController@edit')->name('tema.edit');
 Route::delete('/temas/{tema}','TemaController@delete')->name('tema.destroy');
 
+/* Auth */
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 /*  Email MailTrap */
-Route::get('enviarcorreo', ['as' => 'enviar', function () {
+Route::get('/enviarcorreo', ['as' => 'enviar', function () {
     $data = ["link" => "https://digital-pineapple.com.mx"];
     Mail::send('emails.notificacion', $data, function ($message) {
         $message->from("ventas@digital-pineapple.com.mx", "https://digital-pineapple.com.mx");
@@ -47,7 +51,6 @@ Route::get('enviarcorreo', ['as' => 'enviar', function () {
     });
     return "Se envío el email de manera exitosa";
 }]);
+
 /* para verificar cuenta */
-Auth::routes(['verify' => true]);
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => True]);
