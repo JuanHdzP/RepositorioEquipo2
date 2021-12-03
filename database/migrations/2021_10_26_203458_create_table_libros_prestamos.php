@@ -17,9 +17,9 @@ class CreateTableLibrosPrestamos extends Migration
             $table->bigIncrements('id');
             //Declaracion de llaves foraneas
             $table->unsignedBigInteger('libro_id');
-            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->foreign('libro_id')->references('id')->on('libros')->onDelete('cascade');
             $table->unsignedBigInteger('prestamo_id');
-            $table->foreign('prestamo_id')->references('id')->on('prestamos');
+            $table->foreign('prestamo_id')->references('id')->on('prestamos')->onDelete('cascade');
             $table->timestamps();
         });
     }

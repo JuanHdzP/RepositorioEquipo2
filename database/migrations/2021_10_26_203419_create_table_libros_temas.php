@@ -17,9 +17,9 @@ class CreateTableLibrosTemas extends Migration
             $table->bigIncrements('id');
             //Declaracion de llaves foraneas
             $table->unsignedBigInteger('libro_id');
-            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->foreign('libro_id')->references('id')->on('libros')->onDelete('cascade');
             $table->unsignedBigInteger('tema_id');
-            $table->foreign('tema_id')->references('id')->on('temas');
+            $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade');
             $table->timestamps();
         });
     }
