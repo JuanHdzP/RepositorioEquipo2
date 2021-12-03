@@ -7,7 +7,6 @@
     <!-- Boostrap v5.0 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
     <!-- FoontAwesome v6 .0 -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
     <!-- Nucleo Icons -->
@@ -20,8 +19,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="{{{url('assets/css/material-dashboard.css')}}}?v=3.0.0" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="{!! asset('css/richtext.min.css') !!}">
+    <script src="{!! asset('js/jquery-3.6.0.min.js') !!}"></script>
+    <script src="{!! asset('js/jquery.richtext.min.js') !!}"></script>
     <title>Wordpres Laravel</title>
 </head>
 <body class="g-sidenav-show  bg-gray-200">
@@ -32,9 +33,7 @@
 
     @include('Layout/footer')
 
-  <script>
-   $(#modalUpdate).show('modal');
-</script>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -79,7 +78,6 @@
         myModal.addEventListener('shown.bs.modal', function () {
           myInput.focus()
       })
-      </script>
-
+ 
 </body>
 </html>
