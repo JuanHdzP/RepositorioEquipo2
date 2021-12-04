@@ -65,42 +65,42 @@
   </div>
                 <!-- Modal ADD END  -->
           
-              <div class="row">
-                <table class="table align-items-center mb-0">   
-            <thead>
+        <div class="row">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">   
+                <thead>
                   <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clave</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clave</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
                   </tr>  
-              </thead>
+                </thead>
               <tbody>
-                  @foreach($temas as $tema)
-                  <tr>
-                      <td>{{$tema->id}}</td>
-                      <td>{{$tema->nombre}}</td>
-                      <td>
-                      <div class="d-flex">
-                        <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type="button" href="{{route('tema.edit',$tema->id) }}" class="btn  btn-success" 
-                          data-bs-toggle="modal" data-bs-target="#modalUpdate"><i class="fas fa-pen-square"></i></a>
-                        <form action="{{ route('tema.destroy', $tema) }}" method="POST">
-                          @method('DELETE')
-                          @csrf
-                        <button type='submit' class="btn btn-danger"                  
-                        onClick="return confirm('Deseas eliminar el registro?')">
-                        <i class="far fa-trash-alt"></i>
-                      </div>
-                      </button>           
+                @foreach($temas as $tema)
+                <tr>
+                  <td>{{$tema->id}}</td>
+                  <td>{{$tema->nombre}}</td>
+                  <td>
+                    <div class="d-flex">
+                      <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
+                      <a type="button" href="{{route('tema.edit',$tema->id) }}" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#modalUpdate"><i class="fas fa-pen-square"></i></a>
+                      <form action="{{ route('tema.destroy', $tema) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                      <button type='submit' class="btn btn-danger" onClick="return confirm('Deseas eliminar el registro?')">
+                      <i class="far fa-trash-alt"></i>
+                    </div>
+                    </button>           
                     </form>
-
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-
+                  </td>
+                </tr>
+                @endforeach
+              </tbody>
           </table>
-          {{$temas->links()}}         <!-- Modal edit  STAR-->
+        </div>
+
+          {{$temas->links()}}
+                   <!-- Modal edit  STAR-->
           <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">  

@@ -15,7 +15,8 @@ class EditorialController extends Controller
 
             $editorials = Editorial::latest()->paginate(20);
             return view('editorials.index',[
-            'editorials'=> $editorials
+            'editorials'=> $editorials,
+            'pagname' => 'Editoriales'
             ]);
     
     

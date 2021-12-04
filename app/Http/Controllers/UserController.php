@@ -17,7 +17,8 @@ class UserController extends Controller
         //
         $users = User::latest()->paginate(20);
         return view('users.index',[
-        'users'=> $users
+        'users'=> $users,
+        'pagname' => 'Usuarios'
         ]);
     }
 

@@ -16,7 +16,8 @@ class LibroController extends Controller
 
             $libros = Libro::latest()->paginate(20);
             return view('libros.index',[
-            'libros'=> $libros
+            'libros'=> $libros,
+            'pagname' => 'Libros'
             ]);
     
     
@@ -59,7 +60,7 @@ class LibroController extends Controller
         return $libro;
 
         return view('libro.show',[
-            '$libro' => $libro
+            '$libro' => $libro,
         ]);
         }
     

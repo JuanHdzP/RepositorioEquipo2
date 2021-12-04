@@ -15,7 +15,8 @@ class TemaController extends Controller
 
         $temas = Tema::latest()->paginate(20);
         return view('temas.index',[
-        'temas'=> $temas
+        'temas'=> $temas,
+        'pagname' => 'Temas'
         ]);
 
 

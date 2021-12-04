@@ -25,7 +25,8 @@ class HomeController extends Controller
             'users' => $users,
             'libros' => $libros,
             'editoriales' => $editoriales,
-            'temas' => $temas
+            'temas' => $temas,
+            'pagname' => 'Tablero'
         ]);
     }
 }
