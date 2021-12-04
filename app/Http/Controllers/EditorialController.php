@@ -42,7 +42,7 @@ class EditorialController extends Controller
             $editorial = Editorial::find($id);
             $editorial->fill($request->all());
             $editorial->save();
-            return redirect('/editorial')->with('alertMesage', 'El usuario se ha actualizado exitosamente!');
+            return redirect('/editorial')->with('alertMesage', 'La editorial se ha actualizado exitosamente!');
         }
  
         public function delete(Editorial $editorial)
