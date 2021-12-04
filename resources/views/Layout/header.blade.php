@@ -61,7 +61,7 @@
           @if (isset($pagname) && $pagname == 'Temas')
             <a class="nav-link text-white active bg-gradient-primary" href="/temas">
           @else
-            <a class="nav-link text-white" href="/temas">
+            <a class="nav-link text-white" href="/tema">
           @endif
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>

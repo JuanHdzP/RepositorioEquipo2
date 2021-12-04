@@ -1,22 +1,23 @@
 @extends('Layout/app')
     @section('content')
     <div class="panel-body">
-      @if (session('mesage'))
+    @if (session('alertMesage'))
       <div class="alert alert-info alert-dismissible text-white" role="alert">
-        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('mesage') }}.</span>
+        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('alertMesage') }}.</span>
         <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       @endif
-      @if (session('mesageDelete'))
+      @if (session('dangerMesage'))
       <div class="alert alert-danger alert-dismissible text-white" role="alert">
-        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('mesageDelete') }}.</span>
+        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('dangerMesage') }}.</span>
         <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       @endif
+
     <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
@@ -81,9 +82,8 @@
                       <td>{{$editorial->nombre}}</td>
                       <td>
                       <div class="d-flex">
-                        <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type="button" href="{{route('editorial.edit',$editorial->id) }}" class="btn  btn-success" 
-                          data-bs-toggle="modal" data-bs-target="#modalUpdate"><i class="fas fa-pen-square"></i></a>
+                      <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
+                        <a type="button" href="" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$editorial->id}}"><i class="fas fa-pen-square"></i></a>
                         <form action="{{ route('editorial.destroy', $editorial) }}" method="POST">
                           @method('DELETE')
                           @csrf
@@ -93,15 +93,11 @@
                       </div>
                       </button>           
                     </form>
+                    
 
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-
-          </table>
-          {{$editorials->links()}}         <!-- Modal edit  STAR-->
-          <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    
+          <!-- Modal edit  STAR-->
+          <div class="modal fade" id="modalUpdate{{$editorial->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">  
                 <div class="modal-header">
@@ -111,13 +107,16 @@
                 <div class="modal-body">
                   <div class="container">
                   <div class="row">
-                    <form action="{{ route('editorial.store') }}" method="POST">
-                      {{-- generar el token para el envio de dato csrf --}}
+
+                    <form action="{{route('editorial.update', $editorial->id)}}" method="POST">
+                      @method('PATCH')
+                      
                       {{ csrf_field() }} 
-                        <label class= "col" for="">Nombre de la editorial:</label>
-                        <input class="col from-control" type="text" name="nombre" placeholder="Nombre" value={{$editorial->name}}>
-              </div>
-                <div class="modal-footer">
+                        <label class= "col" for="">Nombre:</label>
+                        <input class="col from-control" type="text" name="nombre" value="{{$editorial->nombre}}">
+                      </div>
+                    <div class="modal-footer">
+                      @csrf
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
@@ -128,6 +127,17 @@
             </div>
           </div>
                       <!-- Modal edit  END  -->
+
+
+
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+
+          </table>
+          {{$editorials->links()}}
+          <br>
       </div>
   </div> 
 

@@ -22,26 +22,14 @@ class EditorialController extends Controller
     
         }
     
-        /**
-         * Store a newly created resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\Http\Response
-         */
         public function store(Request $request)
     {
         Editorial::create([
             'nombre'=>$request->nombre
         ]);
-        return redirect('/editorial')->with('mesage', 'La editorial se creó exitosamente ');
+        return redirect('/editorial')->with('alertMesage', 'La editorial se creó exitosamente ');
     }
-    
-        /**
-         * Display the specified resource.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
+
         public function show($id)
         {
             $editorials = Editorial::find($id);
@@ -49,46 +37,17 @@ class EditorialController extends Controller
             return $editorials;
         }
     
-        /**
-         * Show the form for editing the specified resource.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
-        public function edit($id)
-        {
-            $editorials = Editorial::findOrFaild($id);
-            return view('/editorial');
-        }
-    
-        /**
-         * Update the specified resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
-
-        // public function delete(Editorial $editorials){
-        //     $editorials->delete();
-        //     return redirect('/editorial')->with('mesageDelete', 'la editorial se ha eliminado exitosamente!');
-
-        // }
-
         public function update(Request $request, $id)
         {
-            //
+            $editorial = Editorial::find($id);
+            $editorial->fill($request->all());
+            $editorial->save();
+            return redirect('/editorial')->with('alertMesage', 'El usuario se ha actualizado exitosamente!');
         }
-    
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
+ 
         public function delete(Editorial $editorial)
         {
             $editorial->delete();   
-            return redirect('/editorial')->with('mesageDelete', 'La editorial se ha eliminado exitosamente!');
+            return redirect('/editorial')->with('dangerMesage', 'La editorial se ha eliminado exitosamente!');
         }
 }

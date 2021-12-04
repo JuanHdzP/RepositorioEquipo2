@@ -19,20 +19,13 @@ class LibroController extends Controller
             'libros'=> $libros,
             'pagname' => 'Libros'
             ]);
-    
-    
         }
+
         public function create()
         {
             return view('libros.add');
         }
-    
-        /**
-         * Store a newly created resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @return \Illuminate\Http\Response
-         */
+
         public function store(Request $request)
         {
             Libro::create([
@@ -43,18 +36,11 @@ class LibroController extends Controller
                 'existencias'=> $request->existencias,
                 'editorial_id'=> $request->editorial_id
             ]);
-            return ('El Libro se dio de alta de manera correcta');
+            return redirect('/libro')->with('alertMesage', 'El libro se ha agregado exitosamente!');
         }
-    
-        /**
-         * Display the specified resource.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
+
         public function show($id)
         {
-            //
         $libro = Libro::find($id);
 
         return $libro;
@@ -63,45 +49,23 @@ class LibroController extends Controller
             '$libro' => $libro,
         ]);
         }
-    
-        /**
-         * Show the form for editing the specified resource.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
-        public function edit($id)
-        {
-            //
-            $libro = Libro::findOrFaild($id);
-            return view('/libro');
-        }
 
         public function delete(Libro $libro){
             $libro->delete();
-            return redirect('/libro')->with('mesageDelete', 'El libro se ha eliminado exitosamente!');
+            return redirect('/libro')->with('dangerMesage', 'El libro se ha eliminado exitosamente!');
     
     
         }
-    
-        /**
-         * Update the specified resource in storage.
-         *
-         * @param  \Illuminate\Http\Request  $request
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
+
         public function update(Request $request, $id)
         {
-            //
+            $libro = Libro::find($id);
+            $libro->fill($request->all());
+            $libro->save();
+            return redirect('/libro')->with('alertMesage', 'El libro se ha actualizado exitosamente!');
+            
         }
-    
-        /**
-         * Remove the specified resource from storage.
-         *
-         * @param  int  $id
-         * @return \Illuminate\Http\Response
-         */
+
         public function destroy($id)
         {
             //

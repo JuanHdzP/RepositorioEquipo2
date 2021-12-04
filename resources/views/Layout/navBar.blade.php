@@ -9,7 +9,6 @@
               <li class="breadcrumb-item text-sm text-dark active" aria-current="page">
                 {{$pagname}}
               </li>
-            @else
             @endif
           </ol>
 
@@ -17,7 +16,6 @@
               <h6 class="font-weight-bolder mb-0">
                 {{$pagname}}
               </h6>
-            @else
             @endif
         </nav>
       </div>

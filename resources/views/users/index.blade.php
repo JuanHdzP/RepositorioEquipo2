@@ -3,17 +3,17 @@
 @section('content')
 
 <div class="panel-body">
-      @if (session('mesage'))
+      @if (session('alertMesage'))
       <div class="alert alert-info alert-dismissible text-white" role="alert">
-        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('mesage') }}.</span>
+        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('alertMesage') }}.</span>
         <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       @endif
-      @if (session('mesageDelete'))
+      @if (session('dangerMesage'))
       <div class="alert alert-danger alert-dismissible text-white" role="alert">
-        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('mesageDelete') }}.</span>
+        <span class="text-sm"> <a href="javascript:;" class="alert-link text-white">Excelente</a>. {{ session('dangerMesage') }}.</span>
         <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -36,43 +36,7 @@
                     <a type="button" href="libro/add" class="btn btn-primary">
                         <i class="fas fa-plus-circle"></i>
                       </a>
-                  </div>
                 </div>
-              </div>
-              <div class="card-body px-0 pb-2">
-                <div class="table-responsive p-0">
-    <div class="container">
-            
-    
-    <!---------- Agregar ----------->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">  
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ingreso de usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label=""></button>
-        </div>
-        <div class="modal-body">
-          <div class="container">
-          <div class="row">
-            <form action="{{ route('user.store') }}" method="POST">
-              {{ csrf_field() }} 
-                <label class= "col" for="">Nombre:</label>
-                <input class="col from-control" type="text" name="name" placeholder="Nombre">
-      </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-      </div>
-    </div>
-  </div>
-              <!---------- Modal Fin ----------->
-
-
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -97,8 +61,7 @@
                     <td>
                     <div class="d-flex">
                         <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <a type="button" href="{{route('user.edit',$user->id) }}" class="btn  btn-success" 
-                          data-bs-toggle="modal" data-bs-target="#modalUpdate"><i class="fas fa-pen-square"></i></a>
+                        <a type="button" href="" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$user->id}}"><i class="fas fa-pen-square"></i></a>
                         <form action="{{ route('user.destroy', $user) }}" method="POST">
                           @method('DELETE')
                           @csrf
@@ -107,17 +70,11 @@
                         <i class="far fa-trash-alt"></i>
                       </div>
                       </button>           
-                    </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                      </form>
 
-        {{$users->links()}}
 
-        <!---------- Modal ----------->
-          <div class="modal fade" id="modalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <!---------- Modal ----------->
+          <div class="modal fade" id="modalUpdate{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">  
                 <div class="modal-header">
@@ -127,31 +84,30 @@
                 <div class="modal-body">
                   <div class="container">
                   <div class="row">
-                    <form action="{{ route('user.store') }}" method="POST">
+                    
+                    <form action="{{route('user.update', $user->id)}}" method="POST">
+                      @method('PATCH')
+                      
                       {{ csrf_field() }} 
                         <label class= "col" for="">Nombre:</label>
-                        <input class="col from-control" type="text" name="nombre" value={{$user->nombre}}>
+                        <input class="col from-control" type="text" name="nombre" value="{{$user->nombre}}">
                         <br>
                         <label class= "col" for="">Telefono:</label>
-                        <input class="col from-control" type="tel" name="telefono" value={{$user->telefono}}>
+                        <input class="col from-control" type="tel" name="telefono" value="{{$user->telefono}}">
                         <br>
                         <label class= "col" for="">Email:</label>
-                        <input class="col from-control" type="email" name="email" value={{$user->email}}>
-                        <br>
-                        <label class= "col" for="">Email Verified At:</label>
-                        <input class="col from-control" type="date" name="email_verified_at" value={{$user->email_verified_at}}>
+                        <input class="col from-control" type="email" name="email" value="{{$user->email}}">
                         <br>
                         <label class= "col" for="">Contrasena:</label>
-                        <input class="col from-control" type="password" name="password" value={{$user->password}}>
-                        <br>
-                        <label class= "col" for="">Token:</label>
-                        <input class="col from-control" type="text" name="remember_token" value={{$user->remember_token}}>
+                        <input class="col from-control" type="password" name="password" value="{{$user->password}}">
                   </div>
                 <div class="modal-footer">
+                        @csrf
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                   <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
               </form>
+              
             </div>
           </div>
               </div>
@@ -159,6 +115,14 @@
           </div>
         <!---------- Modal Fin ----------->
 
+
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <br>
+        {{$users->links()}}
     </div>
 </div>
 @endsection

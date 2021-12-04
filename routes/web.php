@@ -11,44 +11,43 @@
 |
 */
 
+/* Home */
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 /* Usuarios */
-Route::get('/user', 'UserController@index');
-Route::get('/user/add', 'UserController@create');
-Route::post('/users', 'UserController@store')->name('user.store');
-Route::get('/user/{id}', 'UserController@edit')->name('user.edit');
-Route::delete('/users/{user}' ,'UserController@delete')->name('user.destroy');
+Route::get('/user', 'UserController@index'); // Listado
+Route::get('/user/add', 'UserController@create'); // Formulario
+Route::post('/users', 'UserController@store')->name('user.store'); // Almacenar
+Route::patch('/user/{id}', 'UserController@update')->name('user.update'); // Actualizar
+Route::delete('/users/{user}' ,'UserController@delete')->name('user.destroy'); // Eliminar
 
 /* Editoriales */
-Route::get('/editorial','EditorialController@index');
-Route::get('/editorial/add', 'EditorialController@create');
-Route::post('/editorials','EditorialController@store')->name('editorial.store');
-Route::get('/editorial/{id}', 'EditorialController@edit')->name('editorial.edit');
-Route::delete('/editorials/{editorial}','EditorialController@delete')->name('editorial.destroy');
+Route::get('/editorial','EditorialController@index'); // Listado
+Route::get('/editorial/add', 'EditorialController@create'); // Formulario
+Route::post('/editorials','EditorialController@store')->name('editorial.store'); // Almacenar
+Route::patch('/editorial/{id}','EditorialController@update')->name('editorial.update'); // Actualizar
+Route::delete('/editorials/{editorial}','EditorialController@delete')->name('editorial.destroy'); // Eliminar
 
 /* Libros */
-Route::get('/libro','LibroController@index');
-Route::get('/libro/add','LibroController@create');
-Route::post('/libros','LibroController@store')->name('libro.store');
-Route::get('/libros/{$id}','LibroController@edit')->name('libro.edit');
-Route::delete('/libros/{libro}','LibroController@delete')->name('libro.destroy');
+Route::get('/libro','LibroController@index'); // Listado
+Route::get('/libro/add','LibroController@create'); // Formulario
+Route::post('/libros','LibroController@store')->name('libro.store'); // Almacenar
+Route::patch('/libro/{id}','LibroController@update')->name('libro.update'); // Actualizar
+Route::delete('/libros/{libro}','LibroController@delete')->name('libro.destroy'); // Eliminar
 
 /* Temas */
-Route::get('/temas','TemaController@index');
-Route::post('/temas','TemaController@store')->name('tema.store');
-Route::get('/temas/{$id}','TemaController@edit')->name('tema.edit');
-Route::delete('/temas/{tema}','TemaController@delete')->name('tema.destroy');
+Route::get('/tema','TemaController@index'); // Listado
+Route::post('/temas','TemaController@store')->name('tema.store'); // Almacenar
+Route::patch('/tema/{id}','TemaController@update')->name('tema.update'); // Actualizar
+Route::delete('/temas/{tema}','TemaController@delete')->name('tema.destroy'); // Eliminar
 
 /* Auth */
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(['verify' => True]);
 
-/*  Email MailTrap */
+/*  Logout */
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
-
-/* para verificar cuenta */
-Auth::routes(['verify' => True]);

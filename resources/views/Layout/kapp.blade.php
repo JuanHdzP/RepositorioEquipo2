@@ -23,22 +23,15 @@
     <link rel="stylesheet" href="{!! asset('css/richtext.min.css') !!}">
     <script src="{!! asset('js/jquery-3.6.0.min.js') !!}"></script>
     <script src="{!! asset('js/jquery.richtext.min.js') !!}"></script>
-    @if (isset($pagname))
-      <title>{{$pagname}}</title>
-    @else
-      <title></title>
-    @endif
-
+    <title>Wordpres Laravel</title>
 </head>
 <body class="g-sidenav-show  bg-gray-200">
-
-    @include('Layout/header')
-
-    @yield('content')
-
-    @include('Layout/footer')
-
-
+    <br>
+    <br>
+    <br>
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      @yield('content')
+    </main>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
