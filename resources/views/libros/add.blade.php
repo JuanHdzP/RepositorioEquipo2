@@ -13,11 +13,26 @@
                 <div class="col">
                   <div class="row">
                     <div class="col-12">
-                      <label class="form-label" for="">Agrega Titulo Aqui</label>
-                      <input type="text" class="col-12 inputborder" placeholder="Titulo del libro">
+                      <label class="form-label" for="">Título</label>
+                      <input type="text" class="col-12 inputborder" placeholder="Título del libro">
                     </div>
                   </div>
                   <br>
+                  <div class="row">
+                    <div class="col-12">
+                      <label class="form-label" for="">Autor</label>
+                      <input type="text" class="col-12 inputborder" placeholder="Autor del libro">
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-12">
+                      <label class="form-label" for="">Existencias</label>
+                      <input type="text" class="col-12 inputborder" placeholder="Ejemplares disponibles">
+                    </div>
+                  </div>
+                  <br>
+                  <label class="form-label" for="">Descripcion</label>
                       <div class="row">
                         <div class="col">
                           <div id="editor">
@@ -50,37 +65,13 @@
                           </div>
                       </div>
                     </div>
+              
                   </div>
-                </div>
-              </div>
-                <div class="row">
-                  <div class="col-9">
-                    <div class="card my-4">
+                  
+                  <div class="card my-4">
                       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                          <h6 class="text-white text-capitalize ps-3">Configuracion SEO</h6>
-                        </div>
-                      </div>
-                      <div class="container">
-                        <div class="row">
-                          <div class="col-12">
-                            <label>Igresar tu keyword aqui :</label>
-                            <br>
-                            <input type="text" class="col-12 inputborder">
-                          </div>
-                          <div class="col-12">
-                            <label for="">Descripción Seo</label>
-                            <textarea class="col-12"name="" id="" cols="30" rows="10"></textarea>
-                          </div>
-                        </div>
-                    </div>
-                    </div>
-                  </div>
-                  <div class="col-3">
-                    <div class="card">
-                      <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                        <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                          <h6 class="text-white text-capitalize ps-3">Agrega Editorial</h6>
+                          <h6 class="text-white text-capitalize ps-3">Editorial</h6>
                         </div>
                         <br>
                         <div class="container">
@@ -96,11 +87,10 @@
                       </div>
                     </div>
                     
-                    <div class="row">
-                    <div class="card">
+                    <div class="card my-4">
                       <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                          <h6 class="text-white text-capitalize ps-3">Agrega Tema</h6>
+                          <h6 class="text-white text-capitalize ps-3">Tema</h6>
                         </div>
                         <br>
                         <div class="container">
@@ -115,7 +105,7 @@
                         </div>
                       </div>
                     </div>
-                      <div class="card">
+                      <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                           <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                             <h6 class="text-white text-capitalize ps-3">Imagen</h6>
@@ -132,11 +122,11 @@
                               </div>
                           </div>
                         </div>
+                </div>
+              </div>                              
                       </div>
                     </div>
                   </div>
-
-
             </div>
           </div>
     @endsection
