@@ -97,9 +97,11 @@
                         <br>
                         <label class= "col" for="">Email:</label>
                         <input class="col from-control" type="email" name="email" value="{{$user->email}}">
+                        <!--
                         <br>
                         <label class= "col" for="">Contrasena:</label>
                         <input class="col from-control" type="password" name="password" value="{{$user->password}}">
+                        -->
                   </div>
                 <div class="modal-footer">
                         @csrf

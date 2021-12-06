@@ -9,12 +9,11 @@ use Faker\Generator as Faker;
 
 $factory->define(Libro::class, function (Faker $faker) {
     return [
-        //
-        'titulo'=> $faker->sentence,
-        'autor'=> $faker->sentence,
-        'descripcion'=> $faker->paragraph(2),
-        'img'=> $faker->imageUrl($width = 640, $height = 480),
-        'existencias'=> $faker->sentence,        
+        'titulo'=> $faker->word,
+        'autor'=> $faker->word,
+        'descripcion'=> $faker->sentence(1),
+        'img'=> ($faker->word . '.jpg'),
+        'existencias'=> $faker->numerify('###'),        
         'editorial_id'=> Editorial::all()->random()->id,
         'tema_id'=> Tema::all()->random()->id
     ];

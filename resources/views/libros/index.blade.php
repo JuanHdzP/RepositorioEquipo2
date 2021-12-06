@@ -71,6 +71,10 @@
                   <tr>
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Clave</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Titulo</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Autor</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Descripcion</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Existencias</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imagen</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Opciones</th>
                   </tr>  
               </thead>
@@ -79,6 +83,10 @@
                   <tr>
                       <td>{{$libro->id}}</td>
                       <td>{{$libro->titulo}}</td>
+                      <td>{{$libro->autor}}</td>
+                      <td>{{$libro->descripcion}}</td>
+                      <td>{{$libro->existencias}}</td>
+                      <td>{{$libro->img}}</td>
                       <td>
                       <div class="d-flex">
                         <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
