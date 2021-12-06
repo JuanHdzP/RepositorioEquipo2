@@ -22,7 +22,9 @@ class CreateLibrosTable extends Migration
             $table->string('existencias');  
             //Declaracion de llaves foraneas
             $table->unsignedBigInteger('editorial_id');
-            $table->foreign('editorial_id')->references('id')->on('editorials')->onDelete('cascade');      
+            $table->foreign('editorial_id')->references('id')->on('editorials')->onDelete('cascade');
+            $table->unsignedBigInteger('tema_id');
+            $table->foreign('tema_id')->references('id')->on('temas')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -14,5 +14,6 @@ class Libro extends Model
     'img',
     'existencias',
     'editorial_id',
+    'tema_id',
     ];
 }

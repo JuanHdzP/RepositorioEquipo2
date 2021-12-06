@@ -4,6 +4,7 @@
 
 use App\Libro;
 use App\Editorial;
+use App\Tema;
 use Faker\Generator as Faker;
 
 $factory->define(Libro::class, function (Faker $faker) {
@@ -14,6 +15,7 @@ $factory->define(Libro::class, function (Faker $faker) {
         'descripcion'=> $faker->paragraph(2),
         'img'=> $faker->imageUrl($width = 640, $height = 480),
         'existencias'=> $faker->sentence,        
-        'editorial_id'=> Editorial::all()->random()->id
+        'editorial_id'=> Editorial::all()->random()->id,
+        'tema_id'=> Tema::all()->random()->id
     ];
 });

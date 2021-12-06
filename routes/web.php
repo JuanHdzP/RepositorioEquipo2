@@ -17,14 +17,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /* Usuarios */
 Route::get('/user', 'UserController@index'); // Listado
-Route::get('/user/add', 'UserController@create'); // Formulario
+//Route::get('/user/add', 'UserController@create'); // Formulario
 Route::post('/users', 'UserController@store')->name('user.store'); // Almacenar
 Route::patch('/user/{id}', 'UserController@update')->name('user.update'); // Actualizar
 Route::delete('/users/{user}' ,'UserController@delete')->name('user.destroy'); // Eliminar
 
 /* Editoriales */
 Route::get('/editorial','EditorialController@index'); // Listado
-Route::get('/editorial/add', 'EditorialController@create'); // Formulario
 Route::post('/editorials','EditorialController@store')->name('editorial.store'); // Almacenar
 Route::patch('/editorial/{id}','EditorialController@update')->name('editorial.update'); // Actualizar
 Route::delete('/editorials/{editorial}','EditorialController@delete')->name('editorial.destroy'); // Eliminar
