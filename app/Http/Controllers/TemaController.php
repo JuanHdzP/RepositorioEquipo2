@@ -56,8 +56,10 @@ class TemaController extends Controller
     public function update(Request $request, $id)
     {
         $tema = Tema::find($id);
-        $tema->fill($request->all());
-        $tema->save();
+        // $tema->fill($request->all());
+        // $tema->save();
+        $tema->update($request->all());
+
         return redirect('/tema')->with('alertMesage', 'El tema se ha actualizado exitosamente!');
     }
 

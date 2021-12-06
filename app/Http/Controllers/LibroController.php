@@ -60,8 +60,10 @@ class LibroController extends Controller
         public function update(Request $request, $id)
         {
             $libro = Libro::find($id);
-            $libro->fill($request->all());
-            $libro->save();
+            // $libro->fill($request->all());
+            // $libro->save();
+            $libro->update($request->all());
+
             return redirect('/libro')->with('alertMesage', 'El libro se ha actualizado exitosamente!');
             
         }

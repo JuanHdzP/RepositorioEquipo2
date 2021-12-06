@@ -53,8 +53,9 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
+        //$user->fill($request->all()
+        //$user->save();
+        $user->update($request->all());
         return redirect('/user')->with('alertMesage', 'El usuario se ha actualizado exitosamente!');
     }
 

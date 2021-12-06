@@ -40,8 +40,10 @@ class EditorialController extends Controller
         public function update(Request $request, $id)
         {
             $editorial = Editorial::find($id);
-            $editorial->fill($request->all());
-            $editorial->save();
+            // $editorial->fill($request->all());
+            // $editorial->save();
+            $editorial->update($request->all());
+
             return redirect('/editorial')->with('alertMesage', 'La editorial se ha actualizado exitosamente!');
         }
  
