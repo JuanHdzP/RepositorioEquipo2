@@ -84,7 +84,7 @@
                   <td>{{$tema->nombre}}</td>
                   <td>
                     <div class="d-flex">
-                    <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
+                    
                         <a type="button" href="" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$tema->id}}"><i class="fas fa-pen-square"></i></a>
                       <form action="{{ route('tema.destroy', $tema) }}" method="POST">
                         @method('DELETE')

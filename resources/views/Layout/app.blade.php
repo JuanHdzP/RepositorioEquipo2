@@ -22,7 +22,11 @@
     <link id="pagestyle" href="{{{url('assets/css/material-dashboard.css')}}}?v=3.0.0" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 
-    <title>Wordpres Laravel</title>
+	@if (isset($pagname))
+              <title>{{$pagname}}</title>
+        @else
+	      <title>Libreria</title>
+        @endif
 </head>
 <body class="g-sidenav-show  bg-gray-200">
 

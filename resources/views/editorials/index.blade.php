@@ -82,7 +82,7 @@
                       <td>{{$editorial->nombre}}</td>
                       <td>
                       <div class="d-flex">
-                      <button type='button' class="btn btn-primary"><i class="far fa-eye"></i></button>
+                      
                         <a type="button" href="" class="btn  btn-success" data-bs-toggle="modal" data-bs-target="#modalUpdate{{$editorial->id}}"><i class="fas fa-pen-square"></i></a>
                         <form action="{{ route('editorial.destroy', $editorial) }}" method="POST">
                           @method('DELETE')

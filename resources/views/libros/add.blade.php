@@ -40,7 +40,7 @@
                       <div class="row">
                         <div class="col">
                           <textarea name="descripcion" id="editor">
-                              <!--- Aqui va el contenido del editor de texto -->
+                              
                           </textarea>
                           <br>
                         </div>
